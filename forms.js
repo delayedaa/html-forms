@@ -45,7 +45,11 @@ let validate = function() {
 };
 
 let send = function(event) {
-  
+  let allFormBoxes = document.getElementsByClassName('form-box');
+  for (let i = 0; i < allFormBoxes.length; i++) {
+    allFormBoxes[i].classList.remove('error');
+    allFormBoxes[i].setAttribute('data-errormsg', '');
+  }
   event.preventDefault();
   event.stopPropagation();
   let failures = validate();
